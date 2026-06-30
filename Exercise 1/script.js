@@ -45,7 +45,7 @@ async function createWikiItem(breed) {
   return item;
 }
 
-async function start() {
+async function initializedCode() {
   const container = document.querySelector(".container");
   for (const breed of breeds) {
     const item = await createWikiItem(breed);
@@ -53,7 +53,7 @@ async function start() {
   }
 }
 
-start();
+initializedCode();
 
 /* testing stuff
 const imageRes = await fetch(`https://dog.ceo/api/breed/akita/images/random`);
