@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Ahmad",
+    "todos": [
+      "Eat",
+      "Sleep",
+      "Repeat"
+    ]
+  },
+  {
+    "name": "Pekka",
+    "todos": [
+      "Gym",
+      "Sleep"
+    ]
+  }
+]
