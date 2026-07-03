@@ -85,7 +85,7 @@ async function readUsers() {
         return [];
     }
 }
-// Task 5: Save users to data.json
+// 5. Save users to data.json
 async function writeUsers(users) {
     await (0, promises_1.writeFile)(USER_DATA, JSON.stringify(users, null, 2));
 }
