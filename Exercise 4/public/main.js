@@ -6,7 +6,7 @@ const deleteUser = document.getElementById("deleteUser");
 
 let currentUser = "";
 
-
+// 1. Send new todo to the server
 todoForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -26,6 +26,7 @@ todoForm.addEventListener("submit", async (event) => {
     todoForm.reset();
 });
 
+// 2. Search for a user's todos
 searchForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -45,6 +46,7 @@ searchForm.addEventListener("submit", async (event) => {
     message.textContent = "";
     deleteUser.hidden = false;
 
+    // 4. Shows all todos and allows deletion
     result.forEach(todo => {
 
         const li = document.createElement("li");
@@ -83,6 +85,7 @@ searchForm.addEventListener("submit", async (event) => {
     });
 });
 
+// 3. Delete a user (and their todos)
 deleteUser.addEventListener("click", async () => {
 
     const response = await fetch("/delete", {

@@ -5,6 +5,7 @@ const promises_1 = require("node:fs/promises");
 const router = (0, express_1.Router)();
 const USER_DATA = "data.json";
 // let users: TUser[] = []; //  helped with tasks 1-4, not needed for task 5
+// 1. Save users to server
 router.post("/add", async (req, res) => {
     const { name, todo } = req.body;
     const users = await readUsers();
@@ -23,6 +24,7 @@ router.post("/add", async (req, res) => {
         message: `Todo added successfully for user ${name}.`
     });
 });
+// 2. Fetch users (and their todos)
 router.get("/todos/:id", async (req, res) => {
     const name = req.params.id;
     const users = await readUsers();
@@ -34,6 +36,7 @@ router.get("/todos/:id", async (req, res) => {
     }
     res.json(user.todos);
 });
+// 3. Delete users
 router.delete("/delete", async (req, res) => {
     const { name } = req.body;
     const users = await readUsers();
@@ -49,6 +52,7 @@ router.delete("/delete", async (req, res) => {
         message: "User deleted successfully."
     });
 });
+// 4. Delete a (specific) todo
 router.put("/update", async (req, res) => {
     const { name, todo } = req.body;
     const users = await readUsers();
@@ -70,6 +74,7 @@ router.put("/update", async (req, res) => {
         message: "Todo deleted successfully."
     });
 });
+// 5. Read users from data.json
 async function readUsers() {
     try {
         const data = await (0, promises_1.readFile)(USER_DATA, "utf8");
@@ -80,6 +85,7 @@ async function readUsers() {
         return [];
     }
 }
+// Task 5: Save users to data.json
 async function writeUsers(users) {
     await (0, promises_1.writeFile)(USER_DATA, JSON.stringify(users, null, 2));
 }

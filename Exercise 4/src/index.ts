@@ -5,7 +5,7 @@ const router: Router = Router();
 const USER_DATA = "data.json";
 
 // router.get("/", (req: Request, res: Response) => {
-//     res.send("testing o.o !!!!");
+//     res.send("testing o.o !!!!"); testing initial route
 // });
 
 type TUser = {
@@ -15,6 +15,7 @@ type TUser = {
 
 // let users: TUser[] = []; //  helped with tasks 1-4, not needed for task 5
 
+// 1. Save users to server
 router.post("/add", async (req: Request, res: Response) => {
     const { name, todo } = req.body;
 
@@ -37,6 +38,7 @@ router.post("/add", async (req: Request, res: Response) => {
     });
 });
 
+// 2. Fetch users (and their todos)
 router.get("/todos/:id", async (req: Request, res: Response) => {
     const name = req.params.id;
 
@@ -52,6 +54,7 @@ router.get("/todos/:id", async (req: Request, res: Response) => {
     res.json(user.todos);
 });
 
+// 3. Delete users
 router.delete("/delete", async (req: Request, res: Response) => {
     const { name } = req.body;
 
@@ -71,6 +74,7 @@ router.delete("/delete", async (req: Request, res: Response) => {
     });
 });
 
+// 4. Delete a (specific) todo
 router.put("/update", async (req: Request, res: Response) => {
     const { name, todo } = req.body;
 
@@ -99,6 +103,7 @@ router.put("/update", async (req: Request, res: Response) => {
 
 });
 
+// 5. Read users from data.json
 async function readUsers(): Promise<TUser[]> {
 
     try {
@@ -112,6 +117,7 @@ async function readUsers(): Promise<TUser[]> {
 
 }
 
+// 5. Save users to data.json
 async function writeUsers(users: TUser[]) {
 
     await writeFile(
