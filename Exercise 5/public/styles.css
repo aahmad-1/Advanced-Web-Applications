@@ -1,0 +1,42 @@
+.nav-wrapper{
+    /* border: 5px solid green; */
+    background-color: hsl(357.66deg 79.01% 68.24%);
+    color: white;
+}
+
+.brand-logo {
+    color: white !important;
+}
+
+body {
+    background-color: white;
+}
+
+.btn {
+    background-color: hsl(174.38deg 62.75% 40%);
+}
+
+#todoList {
+    list-style: none;
+    padding-left: 0;
+}
+
+#userInput,
+#todoInput,
+#searchInput {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    box-shadow: none;
+}
+
+#userInput:focus,
+#todoInput:focus,
+#searchInput:focus {
+    border-bottom: 2px solid teal;
+    box-shadow: none;
+}
+
+input, #message {
+    color: black !important;
+}
