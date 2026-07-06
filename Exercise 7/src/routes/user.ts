@@ -2,16 +2,20 @@ import { Request, Response, Router } from "express" // once again mostly same as
 import { body, validationResult, Result, ValidationError } from "express-validator"
 import bcrypt from "bcrypt"
 import jwt, { JwtPayload } from "jsonwebtoken"
-import dotenv from "dotenv"
-import { User, IUser } from "../models/User"
 
-dotenv.config();
+interface IUser {
+    email: string;
+    password: string;
+}
+
+const users: IUser[] = [];
+
 const router: Router = Router();
 
 // 1. Register
 router.post("/register",
     body("email").trim().escape().matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/), // got valid regex email check from https://www.geeksforgeeks.org/javascript/how-to-validate-email-address-using-regexp-in-javascript/
-    body("password").isLength({min: 5}),
+    body("password").isString(),
     async (req: Request, res: Response) => {
         const errors: Result<ValidationError> = validationResult(req)
 
@@ -21,7 +25,9 @@ router.post("/register",
         }
 
         try {
-            const existingUser: IUser | null = await User.findOne({email: req.body.email})
+            const existingUser = users.find(
+                user => user.email === req.body.email
+            );
             // console.log(existingUser)
             if (existingUser) {
                 return res.status(403).json({message: "Email already in use"})
@@ -30,13 +36,15 @@ router.post("/register",
             const salt: string = bcrypt.genSaltSync(10)
             const hash: string = bcrypt.hashSync(req.body.password, salt)
 
-            const newUser: IUser = await User.create({
+            const newUser: IUser = {
                 email: req.body.email,
                 password: hash
-            });
+            };
+
+            users.push(newUser);
 
             // console.log("User registered:", newUser.email)
-            return res.status(201).json(newUser)
+            return res.status(200).json(newUser)
 
         } catch (error: any) {
             console.error(`Registration error: ${error}`);
@@ -49,10 +57,12 @@ router.post("/register",
 // 2. login
 router.post("/login",
     body("email").trim().escape().matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/), // got valid regex email check from https://www.geeksforgeeks.org/javascript/how-to-validate-email-address-using-regexp-in-javascript/
-    body("password").isLength({min: 5}),
+    body("password").isString(),
     async (req: Request, res: Response) => {
         try {
-            const user: IUser | null = await User.findOne({email: req.body.email})
+            const user = users.find(
+                user => user.email === req.body.email
+            );
             //console.log(user)
 
             if (!user) {
@@ -66,7 +76,6 @@ router.post("/login",
             }
 
             const jwtPayload: JwtPayload = {
-                id: user._id,
                 email: user.email
             }
 
@@ -85,7 +94,6 @@ router.post("/login",
 // 3. List users
 router.get("/list", async (req: Request, res: Response) => {
     try {
-        const users: IUser[] = await User.find();
         return res.status(200).json(users);
     } catch (error: any) {
         console.error(`Error fetching users: ${error}`);

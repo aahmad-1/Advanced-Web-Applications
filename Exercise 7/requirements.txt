@@ -1,7 +1,6 @@
 npm init
 
 npm install express 
-npm install mongoose 
 npm install morgan 
 npm install bcrypt
 npm install jsonwebtoken
