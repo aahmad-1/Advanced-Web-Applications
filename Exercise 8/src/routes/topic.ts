@@ -8,6 +8,7 @@ router.get("/topics",
     async (req: Request, res: Response) => {
         try {
             const topics: ITopic[] = await Topic.find();
+            // console.log(topics)
             return res.status(200).json(topics);
 
         } catch (error: any) {
@@ -25,6 +26,7 @@ router.post("/topic", validateToken,
                 content: req.body.content,
                 username: req.user!.username // ! fixes the error somehow
             });
+            // console.log("New topic:", newTopic);
 
             return res.status(200).json(newTopic);
 
@@ -39,6 +41,7 @@ router.delete("/topic/:id", validateAdmin,
     async (req: Request, res: Response) => {
         try {
             await Topic.findByIdAndDelete(req.params.id);
+            // console.log("deleting topic:", req.params.id);
             return res.status(200).json({message: "Topic deleted successfully."});
 
         } catch (error: any) {

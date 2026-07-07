@@ -1,0 +1,15 @@
+#postTopic, #deleteTopic, .nav-wrapper {
+    background-color: hsl(4.11deg 89.62% 58.43%);
+}
+
+h1 {
+    margin-left: 225px;
+}
+
+#loginButton, #registerButton {
+    background-color: hsl(0deg 0% 20%);;
+}
+
+#email, #password {
+    background-color: hsl(0deg 0% 33.33%);
+}

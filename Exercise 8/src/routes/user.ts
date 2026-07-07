@@ -37,6 +37,7 @@ router.post("/register", registerValidation,
                 isAdmin: req.body.isAdmin ?? false 
 
             });
+            // console.log("New user:", newUser);
             return res.status(200).json(newUser); //hopefully this works
 
         }
@@ -58,13 +59,14 @@ router.post("/login", loginValidation,
 
         try {
             const user: IUser | null = await User.findOne({email: req.body.email})
+            // console.log(user);
 
             if (!user) {
                 return res.status(404).json({message: "User not found"})
             }
 
             const match: boolean = bcrypt.compareSync(req.body.password, user.password);  //this compares entered password w/ hashed passowrd
-
+            // console.log(match);
             if (!match) { //if passwords dont match
                 return res.status(401).json({message: "Incorrect password"})
             }
@@ -76,6 +78,7 @@ router.post("/login", loginValidation,
             };
 
             const token: string = jwt.sign(jwtPayload, process.env.SECRET as string, {expiresIn: "2h"})
+            // console.log("Generated JWT:", token);
             return res.status(200).json({token})
 
         } catch (error: any) {

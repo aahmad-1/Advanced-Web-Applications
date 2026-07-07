@@ -18,6 +18,7 @@ export const validateToken = (req: CustomRequest, res: Response, next: NextFunct
 
     try {
         const verified = jwt.verify(token, process.env.SECRET as string) as JwtPayload
+        // console.log("verified token payload:", verified);
         req.user = verified
         next()
 
@@ -38,6 +39,7 @@ export const validateAdmin = (req: CustomRequest, res: Response, next: NextFunct
         const verified = jwt.verify(token, process.env.SECRET as string) as JwtPayload
 
         if (!verified.isAdmin) {
+            console.log("user is not an admin")
             return res.status(403).json({message: "Access denied."});
         }
 

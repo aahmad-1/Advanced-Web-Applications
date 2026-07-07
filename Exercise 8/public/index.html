@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,7 @@
     <script src="./js/index.js" defer></script>
 </head>
 <body>
+    
     <nav>
         <div class="nav-wrapper">
             <a href="#" class="brand-logo" style="padding-left:15px;">Thred it</a>
@@ -24,6 +26,8 @@
                             <input type="password" id="password" class="navbar-input" placeholder="Password" required>
                         </div>
 
+                        <div class="col" id="userDisplay"></div>
+
                         <div class="col">
                             <button type="submit" id="loginButton" class="btn waves-effect waves-light">Login</button>
                         </div>
@@ -38,11 +42,13 @@
     </nav>
 
     <h1>Posts</h1>
+
     <div class="container">
         <div id="topicForm"></div>
         <div id="topics"></div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 </body>
 </html>

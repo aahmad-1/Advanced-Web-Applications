@@ -14,6 +14,8 @@ const registerUser = async (event) => {
         isAdmin: event.target.isAdmin.checked //checkbhox doesnt have value, so use checked
     }
 
+    // console.log(formData);
+    
     try {
         const response = await fetch("/api/user/register", {
             method: "POST",
