@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 8 ~ Main</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/index.js" defer></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo" style="padding-left:15px;">Thred it</a>
+
+            <ul class="right">
+                <li>
+                    <form id="loginForm" class="row">
+                        <div class="input-field col">
+                            <input type="email" id="email" class="navbar-input" placeholder="Email" required>
+                        </div> 
+
+                        <div class="input-field col">
+                            <input type="password" id="password" class="navbar-input" placeholder="Password" required>
+                        </div>
+
+                        <div class="col">
+                            <button type="submit" id="loginButton" class="btn waves-effect waves-light">Login</button>
+                        </div>
+
+                        <div class="col">
+                            <button type="button" id="registerButton" class="btn waves-effect waves-light">Register</button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1>Posts</h1>
+    <div class="container">
+        <div id="topicForm"></div>
+        <div id="topics"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
