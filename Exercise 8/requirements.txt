@@ -1,0 +1,17 @@
+npm init
+
+npm install express
+npm install mongoose
+npm install bcrypt
+npm install jsonwebtoken
+npm install dotenv
+npm install express-validator
+npm install morgan
+
+npm install -D @types/node
+npm install -D @types/express
+npm install -D @types/jsonwebtoken
+npm install -D @types/morgan
+npm install -D @types/bcrypt
+npm install -D tsc-watch
+npm install -D nodemon
