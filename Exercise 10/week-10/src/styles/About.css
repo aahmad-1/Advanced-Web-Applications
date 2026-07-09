@@ -1,0 +1,26 @@
+/* for main body under the gray header after you click "about" */
+
+.grid-container {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.grid-item {
+  background-color: #f0f0f0;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.about-title {
+  text-align: center;
+  color: black;
+}
+
+.showMore {
+  display: block;
+  margin: 5px auto;
+}

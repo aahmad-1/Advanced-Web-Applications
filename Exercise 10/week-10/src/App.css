@@ -1,0 +1,10 @@
+/* for styles that are shared all over the app */
+
+button {
+  color: white;
+  background-color: hsl(211.06deg 100% 50%);
+  border: 1px solid hsl(211.06deg 100% 50%);
+  border-radius: 5px;
+  padding: 0.8em 1.4em;
+  cursor: pointer;
+}

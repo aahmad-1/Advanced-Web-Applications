@@ -1,0 +1,29 @@
+/* for the gray header and its components, obviously */
+
+.lorem {
+    color: white;
+    margin-left: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: hsl(0deg 1.24% 52.75%);
+}
+
+.header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+.header li {
+    list-style: none;
+}
+
+#en {
+    margin-right: 15px;
+}
