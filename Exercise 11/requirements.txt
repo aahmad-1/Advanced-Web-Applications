@@ -1,0 +1,20 @@
+npm create vite@latest
+    -Project name: your project name
+    -Select a framework: React
+    -Select a variant: TypeScript
+    -Which linter to use? ESLint
+    -Install with npm and start now? Yes
+
+ctrl + c
+cd "your project name"
+npm run dev
+
+If selected no:
+cd "your project name"
+npm Install
+npm run dev
+
+npm install react-router-dom
+npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/icons-material
+npm run dev
