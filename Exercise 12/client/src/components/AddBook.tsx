@@ -30,7 +30,9 @@ const AddBook = () => {
         e.preventDefault();
 
         const newBook: IBook = { name, author, pages };
+        // console.log("new book:", newBook);
         await addBook(newBook);
+        // console.log("Book was added successfully");
         window.location.href = `/book/${encodeURIComponent(name)}`;
     };
 

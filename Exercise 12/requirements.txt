@@ -1,30 +1,68 @@
-root: 
-npm init (server.ts as entry point)
+ROOT:
+npm init (entry point: server.ts)
 npm install concurrently
 
-client:
+CLIENT:
 npm create vite@latest client
-    -Project name: your project name
-    -Select a framework: React
-    -Select a variant: TypeScript
-    -Which linter to use? ESLint
-    -Install with npm and start now? Yes
+    - Project name: client
+    - Framework: React
+    - Variant: TypeScript
+    - Linter: ESLint
+    - Install with npm and start now? Yes
 
-ctrl + c
-cd "your project name"
+Ctrl + C
+
+cd client
 npm install react-router-dom
-npm init (entry point app.ts)
-npm run dev
 
-If selected no:
-cd "your project name"
-npm Install
-npm run dev
+If you selected "No" for installing packages:
+    cd client
+    npm install
 
+SERVER:
+cd root folder
+mkdir server
+cd server
 
-server:
 tsc --init
-npm init (entry point app.ts)
+npm init (entry point: server.ts)
+
 npm install express mongoose cors morgan
 npm install -D typescript tsc-watch nodemon @types/node @types/express @types/cors @types/morgan
 
+----------------------------------------
+DEVELOPMENT
+----------------------------------------
+
+VS Code Terminal / PowerShell
+
+Terminal 1:
+$env:NODE_ENV="development"; npm run dev:server
+
+Terminal 2:
+npm run dev:client
+
+Open:
+http://localhost:3000
+
+----------------------------------------
+PRODUCTION
+----------------------------------------
+
+VS Code Terminal / PowerShell
+
+npm run build
+$env:NODE_ENV="production"; npm start
+
+Open:
+http://localhost:1234
+
+----------------------------------------
+IF USING COMMAND PROMPT (cmd.exe)
+----------------------------------------
+
+Development:
+set NODE_ENV=development&& npm run dev:server
+
+Production:
+set NODE_ENV=production&& npm start

@@ -15,6 +15,7 @@ const Book = () => {
                     throw new Error("Failed to fetch book");
                 }
                 const data = await response.json();
+                // console.log("book data:", data);
                 setBook(data);
 
             } catch (error) {
