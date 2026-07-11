@@ -1,0 +1,45 @@
+.saved-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
+
+.saved-page .head {
+  grid-column: 1 / -1; /* fixed my grid issue */
+  /* makes heading span full width so it doesn't get squeezed into the grid as its own column */
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+/* each card */
+.saved-page .MuiCard-root {
+  padding: 10px;
+  background-color: hsl(0deg 0% 82.75%);
+}
+
+/* the container in the card */
+.saved-page .MuiCardContent-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
+/* joke part */
+.saved-page .MuiTypography-root.MuiTypography-h6 {
+  font-weight: bold;
+  min-height: 3em;
+  display: flex;
+  align-items: center;
+  margin-bottom: auto;
+}
+
+/* delete button */
+.saved-page .MuiCardContent-root .MuiButtonBase-root {
+  margin-top: auto;
+  margin-bottom: 30px;
+}
