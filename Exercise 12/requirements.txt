@@ -1,0 +1,30 @@
+root: 
+npm init (server.ts as entry point)
+npm install concurrently
+
+client:
+npm create vite@latest client
+    -Project name: your project name
+    -Select a framework: React
+    -Select a variant: TypeScript
+    -Which linter to use? ESLint
+    -Install with npm and start now? Yes
+
+ctrl + c
+cd "your project name"
+npm install react-router-dom
+npm init (entry point app.ts)
+npm run dev
+
+If selected no:
+cd "your project name"
+npm Install
+npm run dev
+
+
+server:
+tsc --init
+npm init (entry point app.ts)
+npm install express mongoose cors morgan
+npm install -D typescript tsc-watch nodemon @types/node @types/express @types/cors @types/morgan
+

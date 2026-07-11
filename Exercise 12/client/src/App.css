@@ -1,0 +1,47 @@
+.books {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+  /* border: 5px solid black; */
+}
+
+.error, .noBook {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title, .author, .pages {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.head, .form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.bookForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;    
+  gap: 12px;              
+  width: 100%;
+  max-width: 320px;        
+  padding: 20px;
+  /* border: 5px solid black; */
+}
+
+.bookForm input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  /* border: 5px solid black; */
+}
+
+#submit {
+  cursor: pointer;
+  border: 1px solid #767676;;
+  border-radius: 6px;
+}
