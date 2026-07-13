@@ -3,13 +3,9 @@ tsc --init
 
 npm install express
 npm install mongoose
-npm install multer
-npm install uuid
-npm install morgan
 npm install nodemon
 
 npm install --save-dev @types/express
-npm install --save-dev @types/morgan
-npm install --save-dev @types/multer 
 npm install --save-dev @types/node
 npm install --save-dev tsc-watch
+npm install --save-dev typescript
