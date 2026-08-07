@@ -6,9 +6,11 @@ const router = (0, express_1.Router)();
 router.post("/book", async (req, res) => {
     try {
         const { name, author, pages } = req.body;
+        // console.log("book details", req.body);
         const newBook = new Book_1.Book({ name, author, pages });
         await newBook.save();
-        res.status(200).send("ok");
+        // console.log(newBook);
+        res.status(200).send("ok"); // according to the moodle image(?)
     }
     catch (error) {
         console.error(error);

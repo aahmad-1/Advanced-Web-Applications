@@ -32,7 +32,7 @@ else if (process.env.NODE_ENV === "production") {
     app.use(express_1.default.static(path_1.default.resolve(__dirname, "../../client/dist")));
     app.get("/{*splat}", (req, res) => {
         res.sendFile(path_1.default.resolve(__dirname, "../../client/dist/index.html"));
-    });
+    }); // the one on moodle didnt work, ai gave this
 }
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
